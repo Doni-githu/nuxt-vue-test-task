@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <p class="card-text"></p>
                     <p>{{ post.description }}</p>
-                    <p>created At {{ post.createdAt }}</p>
+                    <p>created At {{ dateTimeFormat(post.createdAt) }}</p>
                 </div>
             </div>
         </div>
