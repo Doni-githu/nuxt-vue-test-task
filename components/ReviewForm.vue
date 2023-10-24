@@ -10,7 +10,7 @@
                 <button type="submit" class="btn btn-primary" @click="onAddComment">Отправить</button>
             </form>
         </template>
-        <p><ins @click="isSeeReview = !isSeeReview">{{ isSeeReview ? 'Закрыть' : 'Смотреть' }}</ins> отзывов ({{
+        <p><ins class="pointer" @click="isSeeReview = !isSeeReview">{{ isSeeReview ? 'Закрыть' : 'Смотреть' }}</ins> отзывов ({{
             reviews.length }})</p>
         <template v-if="isSeeReview">
             <div class="mt-4">
@@ -21,7 +21,7 @@
                         <button class="btn btn-primary" @click="handleReply(review.id, 'isOthersReply')">Ответить на
                             отзыв</button>
                         <p>
-                            <ins @click="handleReply(review.id, 'isOthersSeeReplayed')">{{ review.isOthersSeeReplayed ?
+                            <ins class="pointer" @click="handleReply(review.id, 'isOthersSeeReplayed')">{{ review.isOthersSeeReplayed ?
                                 'Закрыть' : 'Смотреть' }}</ins> ответы ({{ review.replies.length }})
                         </p>
                         <div>
@@ -113,3 +113,8 @@ export default {
     }
 };
 </script>
+<style>
+.pointer{
+    cursor: pointer;
+}
+</style>
