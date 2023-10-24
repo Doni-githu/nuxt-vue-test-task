@@ -3,16 +3,7 @@
         <div class="card shadow-sm" style="padding: 16px;">
             <img class="img" style="height: 320px;" v-show="post.image && isValidWebUrl(post.image)" loading="lazy"
                 :src="post.image">
-            <div class="card-body">
-                <p v-if="post.title" class="card-text">{{ post.title }}</p>
-                <p v-if="post.description">{{ post.description }}</p>
-                <div class="btn-group">
-                    <button class="btn btn-sm btn-outline-primary" @click="isWriting = !isWriting">Поставить
-                        отзыв</button>
-                    <button class="btn btn-sm btn-outline-primary" @click="isSeeDetail = !isSeeDetail">Детально
-                        посмотреть</button>
-                </div>
-            </div>
+            <PostCardBody :post="post" :changeBooleans="changeBooleans" />
             <div>
                 <ReviewForm :endSubmittingComment="endSubmittingComment" :isWriting="isWriting"
                     :reviewList="post.reviews" />
@@ -24,13 +15,15 @@
     </div>
 </template>
 <script>
+import PostCardBody from './PostCardBody.vue';
+
 
 export default {
     data() {
         return {
             isWriting: false,
             isSeeDetail: false
-        }
+        };
     },
     props: {
         post: {
@@ -44,12 +37,16 @@ export default {
             return regEx.test(url);
         },
         endSubmittingComment() {
-            this.isWriting = false
+            this.isWriting = false;
         },
         endSeeDetail() {
-            this.isSeeDetail = false
+            this.isSeeDetail = false;
+        },
+        changeBooleans(objectName) {
+            this[objectName] = !this[objectName];
         }
     },
+    components: { PostCardBody }
 }
 </script>
 <style>
@@ -57,7 +54,8 @@ export default {
     border-top-right-radius: 0.375rem;
     border-top-right-radius: 0.375rem;
 }
-.modal2-body{
+
+.modal2-body {
     background-color: white;
     padding: 15px;
     display: flex;
