@@ -7,13 +7,6 @@
 </template>
 <script>
 export default {
-    mounted() {
-        const newPosts = this.posts.map((item) => ({
-            ...item,
-            createAt: new Date(Date.now() - Number(Math.random() * 1000)).toISOString()
-        }))
-        this.posts = newPosts
-    },
     inject: ['posts']
 }
 </script>
