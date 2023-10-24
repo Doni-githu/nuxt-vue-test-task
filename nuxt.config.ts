@@ -11,7 +11,11 @@ export default defineNuxtConfig({
           defer: true,
           src: 'https://plausible.io/js/plausible.js',
         },
-      ]
+      ],
+      title: "Test task",
     }
+  },
+  routeRules: {
+    "/": { prerender: true }
   }
 })
