@@ -97,7 +97,6 @@ export default {
                     };
                     review.isOthersSeeReplayed = true
                     review.replies.push(newReply);
-                    console.log(review)
                     review.isOthersReply = false
                     this.replayText = ""
                 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="modal2 view" @click="closeIt">
+    <div class="modal2 view" @click.="closeIt">
         <div class="modal2-body">
             <div class="modal-header">
                 <h5 class="modal-title">{{ post.title }}</h5>
